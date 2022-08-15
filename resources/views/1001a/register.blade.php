@@ -30,7 +30,7 @@
           <div class="col-md-6">
             <div class="form-block">
               <div class="text-center mb-5">
-              <h3>Register</h3>
+              <h3>Register!</h3>
               
               </div>
               <form action="{{route('register-process')}}" method="POST">

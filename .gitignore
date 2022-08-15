@@ -14,3 +14,9 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+eval "$(ssh-agent -s)"
+aloalo/
+book-store-wbsite/
+.DS_Store
+book-store-website/
+eval "$(ssh-agent -s)".pub

@@ -92,9 +92,7 @@ https://templatemo.com/tm-559-zay-shop
                               <li class="nav-item d_none">
                                  <a class="nav-link" href="{{url('admin')}}">Admin Dashboard</a>
                               </li>  
-                              <li class="nav-item d_none">
-                                 <a class="nav-link" href="{{url('registerAdmin')}}">registerAdmin</a>
-                              </li>  
+                              
                               @endif
                               
                     </ul>

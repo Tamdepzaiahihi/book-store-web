@@ -445,6 +445,7 @@
             </div>
           </li>
           
+          
         </ul>
       </nav>
       <!-- partial -->
@@ -465,36 +466,31 @@
                   <div class="container" style="margin-top: 50px">
         <div class="row">
             <div class="col-md-12">
-                <h2>Product List</h2>
+                <h2>Customer List</h2>
                 @if (Session::has('success'))
                     <div class="alert alert-success" role="alert">
                         {{Session::get('success')}}
                     </div>
                 @endif
                 <div style="margin-right: 10%; float: right;">
-                    <a href="{{url('add')}}" class="btn btn-outline-success">Add Products</a>
+                    <a href="{{url('register')}}" class="btn btn-outline-success">Add Products</a>
                 </div>
                 <table class="table table-hover">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Product Name</th>
-                            <th>Price</th>
-                            <th>Image</th>
+                            <th>Full Name</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($data as $row)
                             <tr>
-                                <td>{{$row->productID}}</td>
-                                <td>{{$row->productName}}</td>
-                                <td>{{$row->productPrice}}</td>
-                                <td><img src="images/{{$row->productImage1}}" 
-                                         alt="" height="90px" width="90px"></td>
+                                <td>{{$row->customerID}}</td>
+                                <td>{{$row->customerFullname}}</td>
                                 <td>
-                                    <a href="{{url('edit/'. $row->productID)}}" class="btn btn-primary">Edit</a>
-                                    <a href="{{url('delete/'. $row->productID)}}" class="btn btn-danger"
+                                    
+                                    <a href="{{url('delete/'. $row->customerID)}}" class="btn btn-danger"
                                         onclick="return confirm('Are you sure?');">Delete</a>
                                 </td>
                             </tr>

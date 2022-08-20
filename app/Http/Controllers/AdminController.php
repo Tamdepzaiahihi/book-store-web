@@ -8,6 +8,7 @@ use Hash;
 use Session;
 use App\Models\Product;
 use App\Models\Producer;
+use App\Models\Customer;
 
 
 
@@ -52,18 +53,43 @@ class AdminController extends Controller
         }        
     }
 
+    public function delete($id)
+    {
+        Admin::where('adminID', '=', $id)->delete();
+        return redirect()->back()->with('success', 'Admin deleted successfully!');
+    }
+
     public function logoutAdmin()
     {
         return view('1001a.home');
     }
 
-    public function listAdmin()
+    public function listProduct()
     {
         $data = Product::get();
         //return $data;
         return view('list', compact('data'));
     }
+    public function listAdmin()
+    {
+        $data = Admin::get();
+        //return $data;
+        return view('admin.listAdmin', compact('data'));
+    }
 
+    public function listCustomer()
+    {
+        $data = Customer::get();
+        //return $data;
+        return view('customer.listCustomer', compact('data'));
+    }
 
+    public function listProducer()
+    {
+        $data = Producer::get();
+        //return $data;
+        return view('producer.listProducer', compact('data'));
+    }
+    
 
 }

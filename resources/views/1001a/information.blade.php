@@ -75,20 +75,13 @@ https://templatemo.com/tm-559-zay-shop
                         <li class="nav-item">
                             <a class="nav-link" href="contact.html">Contact</a>
                         </li>
-                        <li class="nav-item active">
-                                 <a class="nav-link" href="{{url('information')}}">Information</a>
-                              </li>
-                              
                         @if (Session::has('loginID'))
-                                
                               <li class="nav-item d_none">
-                                 <a class="nav-link" href="">Welcome: {{Session::get('loginID')}}</a>
+                                 <a class="nav-link" href="{{Session::get('information)}}">Welcome: {{Session::get('loginID')}}</a>
                               </li>
-                              
                               <li class="nav-item d_none">
                                  <a class="nav-link" href="{{url('logout')}}">Logout</a>
                               </li>
-                              
                               @else
                               <li class="nav-item d_none">
                                  <a class="nav-link" href="{{url('register')}}">Register</a>
@@ -156,31 +149,30 @@ https://templatemo.com/tm-559-zay-shop
             <div class="row">
                <div class="col-md-12">
                   <div class="titlepage">
-                     <h2>Our Products</h2>
+                     <h2>Customer Information</h2>
                   </div>
                </div>
             </div>
             <div class="row">
                <div class="col-md-12">
+                    <a href="{{url'changepassword/' . Session::get('loginID')}}">Change Password</a>
                   <div class="our_products">
                      <div class="row">
-                        @foreach ($data as $row)
-                        <div class="col-md-4 margin_bottom1">
-                            <div class="product_box">
-                                 <a href="{{url('details/' . $row->productID)}}">
-                                    <figure><img src="images/{{$row->productImage1}}" 
-                                                 title="Price: {{$row->productPrice}}" 
-                                                 style="height: 160px; width: 160px;"/>
-                                    </figure>
-                                 </a>
-                                
-                               <h3>{{$row->productName}}</h3>
-                            </div>
-                         </div>    
-                        @endforeach                        
-                        <div class="col-md-12">
-                           <a class="read_more" href="#">See More</a>
+                        @if (Session::has('success'))
+                        <div class="alet alert-success">
+                        {{Session::get('success')}}
                         </div>
+                        @endif
+                      <form action="{{url('saveinformation')}}" method="POST">
+                        @csrf
+                        <label for="">User ID</label>
+                        <input type="text" name="id" value="{{$data->customerID}}" readonly>
+                        <label for="">Full name</label>
+                        <input type="text" name="name" value="{{$data->customerFullname}}">
+                        <label for="">Address</label>
+                        <input type="text" name="address" value="{{$data->customerAddress}}">
+                        <label for="">Email</label>
+                        <input type="text" name="email" value="{{$data->customerEmail}}">
                      </div>
                   </div>
                </div>

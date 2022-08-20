@@ -57,4 +57,20 @@ class CustomerController extends Controller
             return redirect('products');
         }
     }
+
+    public function information()
+    {
+        $data = Customer::get();
+        //return $data;
+        return view('1001a.information', compact('data'));
+    }
+
+   
+    
+
+    public function delete($id)
+    {
+        Customer::where('customerID', '=', $id)->delete();
+        return redirect()->back()->with('success', 'Customer deleted successfully!');
+    }
 }

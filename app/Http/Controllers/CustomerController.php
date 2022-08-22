@@ -64,13 +64,29 @@ class CustomerController extends Controller
         //return $data;
         return view('1001a.information', compact('data'));
     }
-
-   
     
-
     public function delete($id)
     {
         Customer::where('customerID', '=', $id)->delete();
         return redirect()->back()->with('success', 'Customer deleted successfully!');
     }
+
+    
+
+    public function saveinformation(Request $request)
+    {
+        $id = $request->id;
+        Customer::where('customerID', '=', $id)->update([
+            'customerFullame'=>$request->name,
+            'customerAddress'=>$request->address,
+            'customerEmail'=>$request->email,
+        ]);
+
+        return redirect()->back()->with('success', 'Customer updated successfully!');
+    }
+
+   
+    
+
+    
 }

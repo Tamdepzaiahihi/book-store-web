@@ -75,15 +75,14 @@ https://templatemo.com/tm-559-zay-shop
                         <li class="nav-item">
                             <a class="nav-link" href="contact.html">Contact</a>
                         </li>
-                        <li class="nav-item active">
-                                 <a class="nav-link" href="{{url('information')}}">Information</a>
-                              </li>
+                        
                               
                         @if (Session::has('loginID'))
                                 
                               <li class="nav-item d_none">
-                                 <a class="nav-link" href="">Welcome: {{Session::get('loginID')}}</a>
+                                 <a class="nav-link" href="{{url('information')}}">Welcome: {{Session::get('loginID')}}</a>
                               </li>
+                              
                               
                               <li class="nav-item d_none">
                                  <a class="nav-link" href="{{url('logout')}}">Logout</a>

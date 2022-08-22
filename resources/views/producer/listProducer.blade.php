@@ -472,7 +472,9 @@
                     </div>
                 @endif
                 <div style="margin-right: 10%; float: right;">
-                    
+                <div style="margin-right: 10%; float: right;">
+                    <a href="{{url('addProducer')}}" class="btn btn-outline-success">Add Producer</a>
+                </div>
                 </div>
                 <table class="table table-hover">
                     <thead>
@@ -488,7 +490,7 @@
                                 <td>{{$row->producerID}}</td>
                                 <td>{{$row->producerName}}</td>
                                 <td>
-                                
+                                    <a href="{{url('editP/'. $row->producerID)}}" class="btn btn-primary">Edit</a>
                                     <a href="{{url('delete/'. $row->producerID)}}" class="btn btn-danger"
                                         onclick="return confirm('Are you sure?');">Delete</a>
                                 </td>

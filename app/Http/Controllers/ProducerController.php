@@ -8,12 +8,12 @@ class ProducerController extends Controller
 {
     public function listProducer()
     {
-        $data = Customer::get();
+        $data = Producer::get();
         //return $data;
         return view('producer.listProducer', compact('data'));
     }
 
-    public function save(Request $request)
+    public function saveP(Request $request)
     {
         //dd($request->all());
         $id = $request->id;
@@ -22,8 +22,8 @@ class ProducerController extends Controller
 
         $producer = new Producer();
 
-        $product->producerID = $id;
-        $product->producerName = $name;
+        $producer->producerID = $id;
+        $producer->producerName = $name;
         
         $producer->save();
 
@@ -31,10 +31,27 @@ class ProducerController extends Controller
 
     }
 
-    public function add()
+    public function updateP(Request $request)
     {
-        
-        return view('producer.addNew', compact('data'));
+        $id = $request->id;
+        Producer::where('producerID', '=', $id)->update([
+            'producerName'=>$request->name
+            
+        ]);
+
+        return redirect()->back()->with('success', 'Producer updated successfully!');
+    }
+    
+    public function editP($id)
+    {
+        $data = Producer::get();
+        return view('producer.editProducer', compact('data'));
+    }
+
+    public function addP()
+    {
+        $data = Producer::get();
+        return view('producer.addProducer', compact('data'));
     }
 
     public function delete($id)

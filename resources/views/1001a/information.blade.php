@@ -77,7 +77,7 @@ https://templatemo.com/tm-559-zay-shop
                         </li>
                         @if (Session::has('loginID'))
                               <li class="nav-item d_none">
-                                 <a class="nav-link" href="{{Session::get('information)}}">Welcome: {{Session::get('loginID')}}</a>
+                                 <a class="nav-link" href="{{Session::get('information')}}">Welcome: {{Session::get('loginID')}}</a>
                               </li>
                               <li class="nav-item d_none">
                                  <a class="nav-link" href="{{url('logout')}}">Logout</a>
@@ -155,7 +155,7 @@ https://templatemo.com/tm-559-zay-shop
             </div>
             <div class="row">
                <div class="col-md-12">
-                    <a href="{{url'changepassword/' . Session::get('loginID')}}">Change Password</a>
+                    <a href="{{url('changepassword/' . Session::get('loginID'))}}">Change Password</a>
                   <div class="our_products">
                      <div class="row">
                         @if (Session::has('success'))
@@ -165,14 +165,37 @@ https://templatemo.com/tm-559-zay-shop
                         @endif
                       <form action="{{url('saveinformation')}}" method="POST">
                         @csrf
-                        <label for="">User ID</label>
-                        <input type="text" name="id" value="{{$data->customerID}}" readonly>
-                        <label for="">Full name</label>
-                        <input type="text" name="name" value="{{$data->customerFullname}}">
-                        <label for="">Address</label>
-                        <input type="text" name="address" value="{{$data->customerAddress}}">
-                        <label for="">Email</label>
-                        <input type="text" name="email" value="{{$data->customerEmail}}">
+                        @if (Session::has('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{Session::get('success')}}
+                    </div>
+                @endif
+                <div style="margin-right: 10%; float: right;">
+                    <a href="{{url('register')}}" class="btn btn-outline-success">Add Products</a>
+                </div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Full Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($data as $row)
+                            <tr>
+                                <td>{{$row->customerID}}</td>
+                                <td>{{$row->customerFullname}}</td>
+                                
+                                <td>
+                                    
+                                    <a href="{{url('delete/'. $row->customerID)}}" class="btn btn-danger"
+                                        onclick="return confirm('Are you sure?');">Delete</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
                      </div>
                   </div>
                </div>

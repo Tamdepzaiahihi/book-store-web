@@ -33,8 +33,9 @@ Route::get('/products', [ProductController2::class, 'showProducts']);
 Route::get('/details/{id}', [ProductController2::class, 'details']);
 
 Route::get('listProducer', [ProducerController::class, 'listProducer']);
-Route::get('add', [ProducerController::class, 'add']);
-Route::post('save', [ProducerController::class, 'save']);
+Route::get('addP', [ProducerController::class, 'addP']);
+Route::post('saveP', [ProducerController::class, 'saveP']);
+Route::get('editP/{id}', [ProducerController::class, 'editP']);
 Route::get('delete/{id}', [ProducerController::class, 'delete']);
 
 

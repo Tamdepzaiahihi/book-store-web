@@ -473,7 +473,7 @@
                     </div>
                 @endif
                 <div style="margin-right: 10%; float: right;">
-                    <a href="{{url('register')}}" class="btn btn-outline-success">Add Products</a>
+                    <a href="{{url('register')}}" class="btn btn-outline-success">Add Customer</a>
                 </div>
                 <table class="table table-hover">
                     <thead>

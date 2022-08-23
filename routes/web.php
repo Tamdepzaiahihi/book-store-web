@@ -36,7 +36,7 @@ Route::get('listProducer', [ProducerController::class, 'listProducer']);
 Route::get('addP', [ProducerController::class, 'addP']);
 Route::post('saveP', [ProducerController::class, 'saveP']);
 Route::get('editP/{id}', [ProducerController::class, 'editP']);
-Route::get('delete/{id}', [ProducerController::class, 'delete']);
+
 
 
 
@@ -48,9 +48,9 @@ Route::post('/login-process', [CustomerController::class, 'loginProcess'])->name
 Route::get('/logout', [CustomerController::class, 'logout']);
 
 Route::get('information', [CustomerController::class, 'information']);
-Route::get('/editinformation/{id}', [CustomerController::class, 'information']);
+Route::get('/editC/{id}', [CustomerController::class, 'editC']);
 Route::post('/saveinformation', [CustomerController::class, 'saveinformation']);
-Route::get('delete/{id}', [CustomerController::class, 'delete']);
+
 
 
 
@@ -59,7 +59,7 @@ Route::post('/registerAdmin-process', [AdminController::class, 'registerAdminPro
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'admin']);
 Route::post('/loginAdmin-process', [AdminController::class, 'loginAdminProcess'])->name('loginAdmin-process');
 Route::get('/logoutAdmin', [AdminController::class, 'logoutAdmin']);
-Route::get('delete/{id}', [AdminController::class, 'delete']);
+
 
 
 Route::get('listAdmin', [AdminController::class, 'listAdmin']);

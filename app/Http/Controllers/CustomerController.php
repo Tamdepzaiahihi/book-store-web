@@ -71,6 +71,10 @@ class CustomerController extends Controller
         return redirect()->back()->with('success', 'Customer deleted successfully!');
     }
 
+    public function editC($id) {
+        $data = Customer::where('customerID', '=', $id)->first();
+        return view('1001a.editC', compact('data'));
+    }
     
 
     public function saveinformation(Request $request)

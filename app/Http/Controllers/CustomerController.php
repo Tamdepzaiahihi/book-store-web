@@ -81,7 +81,7 @@ class CustomerController extends Controller
     {
         $id = $request->id;
         Customer::where('customerID', '=', $id)->update([
-            'customerFullame'=>$request->name,
+            'customerFullname'=>$request->name,
             'customerAddress'=>$request->address,
             'customerEmail'=>$request->email,
         ]);

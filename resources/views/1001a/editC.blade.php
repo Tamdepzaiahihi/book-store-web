@@ -21,7 +21,7 @@
                        <div>
                        <div>
                        <div>
-                <form action="{{url('saveinformation)}}" method="POST">
+                <form action="{{url('saveinformation')}}" method="POST">
                     @csrf
                     <div class="md-3">
                         <label for="name" class="form-label">User ID</label>
@@ -31,12 +31,12 @@
                     <div class="md-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" name="name" 
-                               value="{{$data->customerFullname}">
+                               value="{{$data->customerFullname}}">
                     </div>
                     <div class="md-3">
                         <label for="name" class="form-label">Password</label>
                         <input type="Password" class="form-control" name="password" 
-                               value="{{$data->customerPass}">
+                               value="{{$data->customerPass}}">
                     </div>
                     
                     <button type="submit" class="btn btn-primary">Update</button>

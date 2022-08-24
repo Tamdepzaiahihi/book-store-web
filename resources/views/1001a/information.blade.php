@@ -169,7 +169,7 @@ https://templatemo.com/tm-559-zay-shop
                     <tbody>
                         @foreach ($data as $row)
                             <tr>
-                                <td>{{$row->customerID}}</td>
+                                <td> {{Session::get('loginID')}}</td>
                                 <td>{{$row->customerFulname}}</td>
                                 <td>{{$row->customerPass}}</td>
                                 

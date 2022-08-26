@@ -12,32 +12,32 @@
     <div class="container" style="margin-top: 20px;">
         <div class="row">
             <div class="col-md-12">
-                <h2>Edit Customer</h2>
+                <h2>Edit Admin</h2>
                 @if (Session::has('success'))
                         <div class="alet alert-success" role="alert">
                         {{Session::get('success')}}
                         </div>
                 @endif
-                <form action="{{url('saveinformation')}}" method="POST">
+                <form action="{{url('saveadmininfo')}}" method="POST">
                     @csrf
                     <div class="md-3">
                         <label for="username" class="form-label">User ID</label>
                         <input type="text" class="form-control" name="username" 
-                               value="{{$data->customerID}}" readonly>
+                               value="{{$data->adminID}}" readonly>
                     </div>
                     <div class="md-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" name="name" 
-                               value="{{$data->customerFullname}}">
+                               value="{{$data->adminFullname}}">
                     </div>
                     <div class="md-3">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" name="password" 
-                               value="{{$data->customerPass}}">
+                               value="{{$data->adminPass}}">
                     </div>
                     
                     <button type="submit" class="btn btn-primary">Update</button>
-                    <a href="{{url('products')}}" class="btn btn-danger">Back</a>
+                    <a href="{{url('listAdmin')}}" class="btn btn-danger">Back</a>
                 </form>
             </div>
         </div>

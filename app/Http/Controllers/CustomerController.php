@@ -17,7 +17,7 @@ class CustomerController extends Controller
     public function registerProcess(Request $request)
     {
         $customer = new Customer();
-        $customer->customerID = $request->username;
+        $customer->customerID = $request-> username;
         $customer->customerPass = Hash::make($request->password);
         $customer->customerFullname = $request->fullname;
         $customer->customerAddress = $request->address;
@@ -53,7 +53,7 @@ class CustomerController extends Controller
     public function logout()
     {
         if(Session::has('loginID')) {
-            Session::pull('loginID');
+            Session::pull('loginID');   
             return redirect('products');
         }
     }
@@ -62,10 +62,10 @@ class CustomerController extends Controller
     {
         $data = Customer::get();
         //return $data;
-        return view('1001a.information', compact('data'));
+        return view('1001a.information', compact('data')); 
     }
     
-    public function delete($id)
+    public function deleteC($id)
     {
         Customer::where('customerID', '=', $id)->delete();
         return redirect()->back()->with('success', 'Customer deleted successfully!');
@@ -79,11 +79,12 @@ class CustomerController extends Controller
 
     public function saveinformation(Request $request)
     {
-        $id = $request->id;
+        $id = $request->username;
         Customer::where('customerID', '=', $id)->update([
             'customerFullname'=>$request->name,
             'customerAddress'=>$request->address,
             'customerEmail'=>$request->email,
+            'customerPass'=>Hash::make($request->password)
         ]);
 
         return redirect()->back()->with('success', 'Customer updated successfully!');

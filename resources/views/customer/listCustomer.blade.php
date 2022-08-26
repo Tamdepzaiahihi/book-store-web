@@ -490,7 +490,7 @@
                                 <td>{{$row->customerFullname}}</td>
                                 <td>
                                     
-                                    <a href="{{url('delete/'. $row->customerID)}}" class="btn btn-danger"
+                                    <a href="{{url('deleteC/'. $row->customerID)}}" class="btn btn-danger"
                                         onclick="return confirm('Are you sure?');">Delete</a>
                                 </td>
                             </tr>

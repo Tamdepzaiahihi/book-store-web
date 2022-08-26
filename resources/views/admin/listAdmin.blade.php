@@ -486,11 +486,12 @@
                         @foreach ($data as $row)
                             <tr>
                                 <td>{{$row->adminID}}</td>
-                                <td>{{$row->adminID}}</td>
+                                <td>{{$row->adminFullname}}</td>
                                 <td>
                                     
-                                    <a href="{{url('delete/'. $row->adminID)}}" class="btn btn-danger"
+                                    <a href="{{url('deleteA/'. $row->adminID)}}" class="btn btn-danger"
                                         onclick="return confirm('Are you sure?');">Delete</a>
+                                        <a href="{{url('editA/'. $row->adminID)}}" class="btn btn-primary">Edit</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -561,4 +562,3 @@
 </body>
 
 </html>
-

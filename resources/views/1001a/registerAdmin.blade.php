@@ -46,7 +46,10 @@
                 @endif
                 @csrf
                 <div class="form-group first">
-                  
+                <div class="form-group first">
+                  <label for="name">Name</label>
+				  <input type="text" name="fullname" class="form-control" value="Your Full Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Full Name';}" >
+                </div>
 
 
                 <div class="form-group first">

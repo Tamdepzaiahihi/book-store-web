@@ -24,6 +24,7 @@ class AdminController extends Controller
         $admin = new Admin();
         $admin->adminID = $request->username;
         $admin->adminPass = Hash::make($request->password);
+        $admin->adminFullname = $request->fullname;
        
        
         $res = $admin->save();
@@ -53,7 +54,7 @@ class AdminController extends Controller
         }        
     }
 
-    public function delete($id)
+    public function deleteA($id)
     {
         Admin::where('adminID', '=', $id)->delete();
         return redirect()->back()->with('success', 'Admin deleted successfully!');
@@ -90,6 +91,23 @@ class AdminController extends Controller
         //return $data;
         return view('producer.listProducer', compact('data'));
     }
+
+    public function editA($id) {
+        $data = Admin::where('adminID', '=', $id)->first();
+        return view('admin.editA', compact('data'));
+    }
     
+
+    public function saveadmininfo(Request $request)
+    {
+        $id = $request->username;
+        Admin::where('adminID', '=', $id)->update([
+            'adminFullname'=>$request->name,
+            'adminPass'=>Hash::make($request->password)
+        ]);
+
+        return redirect()->back()->with('success', 'Admin updated successfully!');
+    }
+
 
 }

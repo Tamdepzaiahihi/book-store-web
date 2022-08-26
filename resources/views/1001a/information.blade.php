@@ -162,15 +162,14 @@ https://templatemo.com/tm-559-zay-shop
                             <th>ID</th>
                             <th> Name</th>
                             <th>Password</th>
-                            
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($data as $row)
                             <tr>
-                                <td> {{Session::get('loginID')}}</td>
-                                <td>{{$row->customerFulname}}</td>
+                                <td>{{$row->customerID}}</td>
+                                <td>{{$row->customerFullname}}</td>
                                 <td>{{$row->customerPass}}</td>
                                 
                                 <td>
